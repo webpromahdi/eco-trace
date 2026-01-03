@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Forest Green Theme */
+    --background: 60 20% 98%;
+    --foreground: 150 30% 15%;
+
+    --card: 60 15% 96%;
+    --card-foreground: 150 30% 15%;
+
+    --popover: 60 20% 98%;
+    --popover-foreground: 150 30% 15%;
+
+    --primary: 150 40% 22%;
+    --primary-foreground: 60 20% 98%;
+
+    --secondary: 215 15% 92%;
+    --secondary-foreground: 215 25% 30%;
+
+    --muted: 60 10% 94%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 80 35% 42%;
+    --accent-foreground: 60 20% 98%;
+
+    --amber: 40 85% 55%;
+    --amber-foreground: 40 50% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 60 15% 88%;
+    --input: 60 15% 88%;
+    --ring: 150 40% 22%;
+
+    --radius: 0.75rem;
+
+    /* Eco Score Colors */
+    --eco-excellent: 150 60% 40%;
+    --eco-good: 80 50% 45%;
+    --eco-moderate: 45 80% 50%;
+    --eco-poor: 25 80% 50%;
+    --eco-critical: 0 70% 50%;
+
+    /* Chart Colors */
+    --chart-1: 150 40% 22%;
+    --chart-2: 80 35% 42%;
+    --chart-3: 40 85% 55%;
+    --chart-4: 215 25% 55%;
+    --chart-5: 150 25% 60%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(150 40% 22% / 0.05), hsl(80 35% 42% / 0.08));
+    --gradient-card: linear-gradient(180deg, hsl(60 20% 100%), hsl(60 15% 96%));
+    --gradient-eco: linear-gradient(135deg, hsl(150 40% 22%), hsl(80 35% 42%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(150 30% 15% / 0.04);
+    --shadow-md: 0 4px 12px hsl(150 30% 15% / 0.06);
+    --shadow-lg: 0 12px 32px hsl(150 30% 15% / 0.08);
+    --shadow-eco: 0 8px 24px hsl(150 40% 22% / 0.15);
+
+    --sidebar-background: 60 15% 96%;
+    --sidebar-foreground: 150 30% 15%;
+    --sidebar-primary: 150 40% 22%;
+    --sidebar-primary-foreground: 60 20% 98%;
+    --sidebar-accent: 80 35% 42%;
+    --sidebar-accent-foreground: 60 20% 98%;
+    --sidebar-border: 60 15% 88%;
+    --sidebar-ring: 150 40% 22%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 60 10% 92%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 60 10% 92%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 60 10% 92%;
+
+    --primary: 150 45% 45%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 60 10% 85%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 80 40% 50%;
+    --accent-foreground: 220 25% 8%;
+
+    --amber: 40 90% 60%;
+    --amber-foreground: 40 50% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 150 45% 45%;
+
+    --eco-excellent: 150 55% 50%;
+    --eco-good: 80 45% 55%;
+    --eco-moderate: 45 75% 55%;
+    --eco-poor: 25 75% 55%;
+    --eco-critical: 0 65% 55%;
+
+    --chart-1: 150 45% 45%;
+    --chart-2: 80 40% 50%;
+    --chart-3: 40 90% 60%;
+    --chart-4: 215 30% 60%;
+    --chart-5: 150 30% 65%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(150 45% 45% / 0.08), hsl(80 40% 50% / 0.1));
+    --gradient-card: linear-gradient(180deg, hsl(220 20% 14%), hsl(220 20% 12%));
+    --gradient-eco: linear-gradient(135deg, hsl(150 45% 45%), hsl(80 40% 50%));
+
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 12px 32px hsl(0 0% 0% / 0.4);
+    --shadow-eco: 0 8px 24px hsl(150 45% 45% / 0.2);
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 60 10% 92%;
+    --sidebar-primary: 150 45% 45%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 80 40% 50%;
+    --sidebar-accent-foreground: 220 25% 8%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 150 45% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .eco-gradient {
+    background: var(--gradient-eco);
+  }
+
+  .eco-gradient-text {
+    background: var(--gradient-eco);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .shadow-eco {
+    box-shadow: var(--shadow-eco);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .glass {
+    @apply backdrop-blur-lg bg-background/80 border border-border/50;
+  }
+
+  .eco-score-ring {
+    @apply relative rounded-full;
+    background: conic-gradient(
+      hsl(var(--primary)) var(--score-percentage, 0%),
+      hsl(var(--muted)) var(--score-percentage, 0%)
+    );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/30;
+}
+
+/* Focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
