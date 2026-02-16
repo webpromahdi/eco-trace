@@ -273,19 +273,3 @@ export const categories = [
   "Bags",
   "Accessories",
 ];
-
-export const getEcoScoreColor = (score: number): string => {
-  if (score >= 90) return "eco-excellent";
-  if (score >= 75) return "eco-good";
-  if (score >= 60) return "eco-moderate";
-  if (score >= 40) return "eco-poor";
-  return "eco-critical";
-};
-
-export const getEcoScoreLabel = (score: number): string => {
-  if (score >= 90) return "Excellent";
-  if (score >= 75) return "Good";
-  if (score >= 60) return "Moderate";
-  if (score >= 40) return "Poor";
-  return "Critical";
-};

@@ -93,7 +93,7 @@ export const Footer = () => {
             <h4 className="font-sans font-semibold text-sm mb-4">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <a
                     href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -112,7 +112,15 @@ export const Footer = () => {
             © {new Date().getFullYear()} EcoTrace. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
-            Made with 💚 by WebProMahdi
+            Made with 💚 by{" "}
+            <a
+              href="https://webpromahdi.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              WebProMahdi
+            </a>
           </p>
         </div>
       </div>

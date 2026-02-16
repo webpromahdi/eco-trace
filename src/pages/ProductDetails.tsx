@@ -9,13 +9,12 @@ import {
   Package,
   Recycle,
   Award,
-  Check,
 } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 import { EcoScore } from "@/components/ui/EcoScore";
-import { products, getEcoScoreLabel } from "@/data/products";
-import { useToast } from "@/hooks/use-toast";
+import { products } from "@/data/products";
+import { toast } from "@/components/ui/sonner";
 
 const sustainabilityMetrics = [
   { key: "materials", label: "Materials", icon: Leaf },
@@ -27,7 +26,6 @@ const sustainabilityMetrics = [
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const { toast } = useToast();
   const product = products.find((p) => p.id === id);
 
   if (!product) {
@@ -46,9 +44,8 @@ const ProductDetails = () => {
   }
 
   const handleAddToTracker = () => {
-    toast({
-      title: "Added to Impact Tracker",
-      description: `${product.name} has been added to your tracker.`,
+    toast.success(`${product.name} has been added to your tracker.`, {
+      description: "Added to Impact Tracker",
     });
   };
 
