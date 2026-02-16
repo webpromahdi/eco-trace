@@ -30,7 +30,7 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-            
+
             {/* Eco Score Badge */}
             <div className="absolute top-3 right-3">
               <EcoScore score={product.ecoScore} size="sm" />
@@ -56,7 +56,7 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                 {product.brand}
               </p>
-              <h3 className="font-serif text-lg font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
+              <h3 className="font-serif text-lg font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1 break-words">
                 {product.name}
               </h3>
             </div>
@@ -74,7 +74,7 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                   {product.carbonFootprint} kg CO₂
                 </span>
               </div>
-              
+
               <motion.span
                 className="text-primary flex items-center gap-1 text-sm font-medium"
                 initial={{ x: 0 }}

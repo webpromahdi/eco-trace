@@ -89,7 +89,7 @@ const Learn = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif heading-section font-semibold text-foreground mb-4"
+              className="font-serif heading-section font-semibold text-foreground mb-4 text-balance"
             >
               Learn About Sustainability
             </motion.h1>
@@ -97,7 +97,7 @@ const Learn = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-body-lg"
+              className="text-muted-foreground text-body-lg text-measure"
             >
               Empower yourself with knowledge about environmental impact,
               sustainable practices, and how to make better choices for our
@@ -144,7 +144,7 @@ const Learn = () => {
             <h2 className="font-serif heading-subsection font-medium mb-6 md:mb-8">
               Popular Topics
             </h2>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-4 sm:gap-6">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-fluid">
               {articles.map((article, index) => (
                 <motion.article
                   key={article.id}

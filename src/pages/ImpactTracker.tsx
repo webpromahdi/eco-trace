@@ -79,7 +79,7 @@ const ImpactTracker = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif heading-section font-semibold text-foreground mb-3"
+              className="font-serif heading-section font-semibold text-foreground mb-3 text-balance"
             >
               Your Impact Dashboard
             </motion.h1>
@@ -87,7 +87,7 @@ const ImpactTracker = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-body-lg max-w-2xl"
+              className="text-muted-foreground text-body-lg text-measure"
             >
               Track your environmental journey and see the positive impact of
               your sustainable choices.
@@ -99,7 +99,7 @@ const ImpactTracker = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 md:mb-10"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-fluid mb-8 md:mb-10"
           >
             {statCards.map((stat, index) => (
               <motion.div
@@ -125,7 +125,7 @@ const ImpactTracker = () => {
           </motion.div>
 
           {/* Charts Section */}
-          <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 mb-8 md:mb-10">
+          <div className="grid lg:grid-cols-2 gap-fluid mb-8 md:mb-10">
             {/* Carbon Saved Over Time */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -146,11 +146,14 @@ const ImpactTracker = () => {
                     <XAxis
                       dataKey="month"
                       className="text-muted-foreground"
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 11 }}
+                      interval="preserveStartEnd"
+                      tickMargin={8}
                     />
                     <YAxis
                       className="text-muted-foreground"
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 11 }}
+                      width={40}
                     />
                     <Tooltip
                       contentStyle={{
@@ -191,12 +194,15 @@ const ImpactTracker = () => {
                     <XAxis
                       dataKey="month"
                       className="text-muted-foreground"
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 11 }}
+                      interval="preserveStartEnd"
+                      tickMargin={8}
                     />
                     <YAxis
                       domain={[0, 100]}
                       className="text-muted-foreground"
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 11 }}
+                      width={40}
                     />
                     <Tooltip
                       contentStyle={{
@@ -226,7 +232,7 @@ const ImpactTracker = () => {
             <h2 className="font-serif heading-subsection font-medium mb-4 sm:mb-6">
               What If You Switched?
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-fluid">
               {scenarioData.map((scenario) => (
                 <div
                   key={scenario.id}

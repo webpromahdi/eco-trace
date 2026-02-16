@@ -108,10 +108,10 @@ const ProductDetails = () => {
                 <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
                   {product.brand}
                 </p>
-                <h1 className="font-serif heading-section font-semibold text-foreground mb-4">
+                <h1 className="font-serif heading-section font-semibold text-foreground mb-4 text-balance">
                   {product.name}
                 </h1>
-                <p className="text-body-lg text-muted-foreground leading-relaxed">
+                <p className="text-body-lg text-muted-foreground leading-relaxed text-measure">
                   {product.description}
                 </p>
               </div>

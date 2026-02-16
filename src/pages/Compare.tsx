@@ -62,7 +62,7 @@ const Compare = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif heading-section font-semibold text-foreground mb-3"
+              className="font-serif heading-section font-semibold text-foreground mb-3 text-balance"
             >
               Compare Products
             </motion.h1>
@@ -70,7 +70,7 @@ const Compare = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-body-lg max-w-2xl"
+              className="text-muted-foreground text-body-lg text-measure"
             >
               Compare sustainability metrics side-by-side to make the most
               eco-conscious choice.
@@ -114,7 +114,7 @@ const Compare = () => {
             >
               <div>
                 {/* Product Cards Row */}
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-fluid">
                   <AnimatePresence mode="popLayout">
                     {selectedProducts.map((product) => (
                       <motion.div

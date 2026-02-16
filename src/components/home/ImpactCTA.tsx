@@ -49,10 +49,10 @@ export const ImpactCTA = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-serif heading-section font-semibold mb-6">
+            <h2 className="font-serif heading-section font-semibold mb-6 text-balance">
               Track your environmental journey
             </h2>
-            <p className="text-primary-foreground/80 text-body-lg leading-relaxed mb-8">
+            <p className="text-primary-foreground/80 text-body-lg leading-relaxed mb-8 text-measure">
               Join thousands of conscious consumers who are making a real
               difference. Our Impact Tracker helps you visualize your progress
               and discover new ways to reduce your footprint.

@@ -74,7 +74,7 @@ const Products = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif heading-section font-semibold text-foreground mb-3"
+              className="font-serif heading-section font-semibold text-foreground mb-3 text-balance"
             >
               Explore Products
             </motion.h1>
@@ -82,7 +82,7 @@ const Products = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-body-lg max-w-2xl"
+              className="text-muted-foreground text-body-lg text-measure"
             >
               Discover sustainable alternatives with transparent eco-scores and
               environmental impact data.
@@ -157,7 +157,7 @@ const Products = () => {
               {/* Products Grid */}
               <motion.div
                 layout
-                className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-4 sm:gap-6"
+                className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-fluid"
               >
                 <AnimatePresence mode="popLayout">
                   {filteredProducts.map((product, index) => (

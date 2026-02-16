@@ -69,7 +69,7 @@ export const HeroSection = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="font-serif heading-hero font-semibold text-foreground mb-6"
+              className="font-serif heading-hero font-semibold text-foreground mb-6 text-balance"
             >
               Discover your
               <span className="block eco-gradient-text">
@@ -79,7 +79,7 @@ export const HeroSection = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-lg text-muted-foreground leading-relaxed mb-8"
+              className="text-lg text-muted-foreground leading-relaxed mb-8 text-measure"
             >
               EcoTrace helps you make informed choices by revealing the true
               environmental footprint of everyday products. Track, compare, and

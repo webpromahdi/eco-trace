@@ -21,7 +21,7 @@ const pageTransition: Transition = {
 
 export const PageLayout = ({ children }: PageLayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col safe-y">
       <Header />
       <motion.main
         className="flex-1 pt-16 lg:pt-20"

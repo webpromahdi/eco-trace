@@ -219,6 +219,18 @@
 }
 
 @layer utilities {
+
+  /* Fluid gap - scales 1rem to 2rem based on viewport */
+  .gap-fluid {
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+
+  /* Optimal reading width for text blocks */
+  .text-measure {
+    max-width: 65ch;
+  }
+
+  /* Balanced text wrapping for multi-line headings */
   .text-balance {
     text-wrap: balance;
   }
@@ -302,5 +314,40 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Prevent horizontal overflow at all viewport widths */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Safe area insets for modern mobile devices */
+@supports (padding: env(safe-area-inset-top)) {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .safe-x {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .safe-y {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }

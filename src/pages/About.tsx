@@ -95,7 +95,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-serif heading-hero font-semibold text-foreground mb-6 leading-tight"
+              className="font-serif heading-hero font-semibold text-foreground mb-6 leading-tight text-balance"
             >
               Making sustainable choices the{" "}
               <span className="eco-gradient-text">easy choice</span>
@@ -104,7 +104,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-muted-foreground text-body-lg leading-relaxed"
+              className="text-muted-foreground text-body-lg leading-relaxed text-measure"
             >
               EcoTrace was created with a simple belief: everyone wants to make
               better choices for the planet, but finding reliable information
@@ -123,7 +123,7 @@ const About = () => {
             <h2 className="font-serif heading-section font-medium mb-6 md:mb-8">
               Our Values
             </h2>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-4 sm:gap-6">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-fluid">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}

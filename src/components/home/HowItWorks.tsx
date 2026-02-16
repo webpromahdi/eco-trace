@@ -54,10 +54,10 @@ export const HowItWorks = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
         >
-          <h2 className="font-serif heading-section font-semibold text-foreground mb-4">
+          <h2 className="font-serif heading-section font-semibold text-foreground mb-4 text-balance">
             How EcoTrace Works
           </h2>
-          <p className="text-muted-foreground text-body-lg">
+          <p className="text-muted-foreground text-body-lg text-measure mx-auto">
             Three simple steps to understanding and reducing your environmental
             footprint.
           </p>
@@ -68,7 +68,7 @@ export const HowItWorks = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-fluid"
         >
           {steps.map((step, index) => (
             <motion.div
