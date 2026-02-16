@@ -33,8 +33,8 @@ const ProductDetails = () => {
   if (!product) {
     return (
       <PageLayout>
-        <div className="container mx-auto px-4 lg:px-6 py-20 text-center">
-          <h1 className="font-serif text-2xl font-semibold mb-4">
+        <div className="container mx-auto py-20 text-center">
+          <h1 className="font-serif heading-subsection font-semibold mb-4">
             Product not found
           </h1>
           <Button asChild>
@@ -54,13 +54,13 @@ const ProductDetails = () => {
 
   return (
     <PageLayout>
-      <section className="py-8 lg:py-16">
-        <div className="container mx-auto px-4 lg:px-6">
+      <section className="py-12 md:py-16 xl:py-24">
+        <div className="container mx-auto">
           {/* Back button */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="mb-8"
+            className="mb-6 md:mb-8"
           >
             <Button asChild variant="ghost" className="group">
               <Link to="/products">
@@ -70,7 +70,7 @@ const ProductDetails = () => {
             </Button>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
             {/* Image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ const ProductDetails = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-              
+
               {/* Certifications badges */}
               <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
                 {product.certifications.map((cert) => (
@@ -108,16 +108,16 @@ const ProductDetails = () => {
                 <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
                   {product.brand}
                 </p>
-                <h1 className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-4">
+                <h1 className="font-serif heading-section font-semibold text-foreground mb-4">
                   {product.name}
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-body-lg text-muted-foreground leading-relaxed">
                   {product.description}
                 </p>
               </div>
 
               {/* Price and Score */}
-              <div className="flex items-center gap-8 mb-8 pb-8 border-b border-border">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 lg:gap-8 mb-6 md:mb-8 pb-6 md:pb-8 border-b border-border">
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Price</p>
                   <p className="text-3xl font-semibold">${product.price}</p>
@@ -134,8 +134,8 @@ const ProductDetails = () => {
               </div>
 
               {/* Sustainability Breakdown */}
-              <div className="mb-8">
-                <h2 className="font-serif text-xl font-medium mb-4">
+              <div className="mb-6 md:mb-8">
+                <h2 className="font-serif heading-subsection font-medium mb-4">
                   Sustainability Breakdown
                 </h2>
                 <div className="space-y-4">
@@ -153,7 +153,9 @@ const ProductDetails = () => {
                               {metric.label}
                             </span>
                           </div>
-                          <span className="text-sm font-semibold">{value}%</span>
+                          <span className="text-sm font-semibold">
+                            {value}%
+                          </span>
                         </div>
                         <div className="h-2 bg-muted rounded-full overflow-hidden">
                           <motion.div
@@ -171,7 +173,11 @@ const ProductDetails = () => {
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" onClick={handleAddToTracker} className="flex-1">
+                <Button
+                  size="lg"
+                  onClick={handleAddToTracker}
+                  className="flex-1"
+                >
                   <Plus className="h-4 w-4 mr-2" />
                   Add to Impact Tracker
                 </Button>
@@ -187,31 +193,41 @@ const ProductDetails = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-16 bg-card rounded-2xl border border-border p-8"
+            className="mt-12 md:mt-16 bg-card rounded-2xl border border-border p-6 sm:p-8"
           >
-            <h2 className="font-serif text-2xl font-medium mb-6">
+            <h2 className="font-serif heading-subsection font-medium mb-6">
               Understanding the Eco-Score
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {[
-                { range: "90-100", label: "Excellent", color: "bg-eco-excellent" },
+                {
+                  range: "90-100",
+                  label: "Excellent",
+                  color: "bg-eco-excellent",
+                },
                 { range: "75-89", label: "Good", color: "bg-eco-good" },
                 { range: "60-74", label: "Moderate", color: "bg-eco-moderate" },
-                { range: "Below 60", label: "Needs Improvement", color: "bg-eco-poor" },
+                {
+                  range: "Below 60",
+                  label: "Needs Improvement",
+                  color: "bg-eco-poor",
+                },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-3">
                   <div className={`w-4 h-4 rounded-full ${item.color}`} />
                   <div>
                     <p className="font-medium">{item.label}</p>
-                    <p className="text-sm text-muted-foreground">{item.range}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.range}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
             <p className="mt-6 text-muted-foreground">
-              The eco-score is calculated based on materials sourcing, manufacturing
-              processes, transportation impact, packaging sustainability, and
-              end-of-life recyclability.
+              The eco-score is calculated based on materials sourcing,
+              manufacturing processes, transportation impact, packaging
+              sustainability, and end-of-life recyclability.
             </p>
           </motion.div>
         </div>

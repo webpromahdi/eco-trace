@@ -79,10 +79,10 @@ const futureFeatures = [
 const About = () => {
   return (
     <PageLayout>
-      <section className="py-12 lg:py-20">
-        <div className="container mx-auto px-4 lg:px-6">
+      <section className="py-16 md:py-24 xl:py-32">
+        <div className="container mx-auto">
           {/* Hero */}
-          <div className="max-w-3xl mb-16">
+          <div className="max-w-3xl mb-12 md:mb-16">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-serif text-3xl lg:text-5xl font-semibold text-foreground mb-6 leading-tight"
+              className="font-serif heading-hero font-semibold text-foreground mb-6 leading-tight"
             >
               Making sustainable choices the{" "}
               <span className="eco-gradient-text">easy choice</span>
@@ -104,7 +104,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-muted-foreground text-lg leading-relaxed"
+              className="text-muted-foreground text-body-lg leading-relaxed"
             >
               EcoTrace was created with a simple belief: everyone wants to make
               better choices for the planet, but finding reliable information
@@ -118,12 +118,12 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mb-20"
+            className="mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="font-serif text-2xl lg:text-3xl font-medium mb-8">
+            <h2 className="font-serif heading-section font-medium mb-6 md:mb-8">
               Our Values
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-4 sm:gap-6">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
@@ -152,16 +152,16 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             id="methodology"
-            className="mb-20"
+            className="mb-12 md:mb-16 lg:mb-20"
           >
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
               <BarChart3 className="h-6 w-6 text-primary" />
-              <h2 className="font-serif text-2xl lg:text-3xl font-medium">
+              <h2 className="font-serif heading-section font-medium">
                 Our Methodology
               </h2>
             </div>
-            <div className="bg-card rounded-2xl border border-border p-8 lg:p-12">
-              <p className="text-muted-foreground mb-8 max-w-2xl">
+            <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 lg:p-12">
+              <p className="text-muted-foreground text-body-lg mb-8 max-w-2xl">
                 Our eco-scoring methodology is designed to be comprehensive,
                 fair, and scientifically grounded. Here's how we calculate
                 sustainability scores:
@@ -188,11 +188,11 @@ const About = () => {
                 ))}
               </div>
 
-              <div className="mt-10 pt-8 border-t border-border">
-                <h3 className="font-serif text-xl font-medium mb-4">
+              <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-border">
+                <h3 className="font-serif heading-subsection font-medium mb-4">
                   Scoring Dimensions
                 </h3>
-                <div className="grid sm:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4">
                   {[
                     { name: "Materials", weight: "25%" },
                     { name: "Manufacturing", weight: "20%" },
@@ -220,12 +220,12 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mb-20"
+            className="mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="font-serif text-2xl lg:text-3xl font-medium mb-8">
+            <h2 className="font-serif heading-section font-medium mb-6 md:mb-8">
               Data & Assumptions
             </h2>
-            <div className="bg-muted/50 rounded-xl p-8">
+            <div className="bg-muted/50 rounded-xl p-6 sm:p-8">
               <p className="text-muted-foreground mb-6">
                 EcoTrace strives for accuracy, but we want to be transparent
                 about our data sources and limitations:
@@ -252,13 +252,13 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="mb-20"
+            className="mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="font-serif text-2xl lg:text-3xl font-medium mb-8">
+            <h2 className="font-serif heading-section font-medium mb-6 md:mb-8">
               What's Next
             </h2>
-            <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12">
-              <p className="text-muted-foreground mb-8 max-w-2xl">
+            <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-6 sm:p-8 lg:p-12">
+              <p className="text-muted-foreground text-body-lg mb-6 md:mb-8 max-w-2xl">
                 We're constantly working to improve EcoTrace and expand our
                 capabilities. Here's what we're planning:
               </p>
@@ -284,12 +284,12 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="text-center bg-card rounded-2xl border border-border p-12"
+            className="text-center bg-card rounded-2xl border border-border p-8 sm:p-10 lg:p-12"
           >
-            <h2 className="font-serif text-2xl lg:text-3xl font-medium mb-4">
+            <h2 className="font-serif heading-section font-medium mb-4">
               Ready to start your journey?
             </h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+            <p className="text-muted-foreground text-body-lg mb-6 md:mb-8 max-w-xl mx-auto">
               Explore our product catalog and begin tracking your environmental
               impact today.
             </p>

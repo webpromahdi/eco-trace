@@ -28,10 +28,10 @@ const socialLinks = [
 export const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 lg:px-6 py-12 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+      <div className="container mx-auto py-16 md:py-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="sm:col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <Leaf className="h-6 w-6 text-primary" />
               <span className="font-serif text-lg font-semibold">EcoTrace</span>

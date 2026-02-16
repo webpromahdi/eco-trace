@@ -82,14 +82,14 @@ const tips = [
 const Learn = () => {
   return (
     <PageLayout>
-      <section className="py-12 lg:py-20">
-        <div className="container mx-auto px-4 lg:px-6">
+      <section className="py-16 md:py-24 xl:py-32">
+        <div className="container mx-auto">
           {/* Header */}
-          <div className="mb-12 max-w-3xl">
+          <div className="mb-8 md:mb-12 max-w-3xl">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-4"
+              className="font-serif heading-section font-semibold text-foreground mb-4"
             >
               Learn About Sustainability
             </motion.h1>
@@ -97,7 +97,7 @@ const Learn = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-lg"
+              className="text-muted-foreground text-body-lg"
             >
               Empower yourself with knowledge about environmental impact,
               sustainable practices, and how to make better choices for our
@@ -110,15 +110,15 @@ const Learn = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
-            <div className="relative bg-gradient-to-br from-primary to-accent rounded-2xl p-8 lg:p-12 text-primary-foreground overflow-hidden">
+            <div className="relative bg-gradient-to-br from-primary to-accent rounded-2xl p-6 sm:p-8 lg:p-12 text-primary-foreground overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="relative z-10 max-w-2xl">
                 <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
                   Featured Article
                 </span>
-                <h2 className="font-serif text-2xl lg:text-3xl font-semibold mb-4">
+                <h2 className="font-serif heading-subsection font-semibold mb-4">
                   The Complete Guide to Sustainable Living
                 </h2>
                 <p className="text-primary-foreground/80 mb-6">
@@ -139,12 +139,12 @@ const Learn = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mb-16"
+            className="mb-12 md:mb-16"
           >
-            <h2 className="font-serif text-2xl font-medium mb-8">
+            <h2 className="font-serif heading-subsection font-medium mb-6 md:mb-8">
               Popular Topics
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-4 sm:gap-6">
               {articles.map((article, index) => (
                 <motion.article
                   key={article.id}
@@ -180,14 +180,14 @@ const Learn = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-card rounded-2xl border border-border p-8 lg:p-12"
+            className="bg-card rounded-2xl border border-border p-6 sm:p-8 lg:p-12"
           >
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
               <div>
-                <h2 className="font-serif text-2xl font-medium mb-4">
+                <h2 className="font-serif heading-subsection font-medium mb-4">
                   Quick Sustainability Tips
                 </h2>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground text-body-lg mb-6">
                   Simple actions you can take today to reduce your environmental
                   impact when shopping for products.
                 </p>
@@ -224,12 +224,12 @@ const Learn = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-12"
+            className="mt-8 md:mt-12"
           >
-            <h2 className="font-serif text-2xl font-medium mb-6">
+            <h2 className="font-serif heading-subsection font-medium mb-6">
               External Resources
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] gap-4">
               {[
                 { name: "EPA Environmental Topics", url: "#" },
                 { name: "UN Sustainable Goals", url: "#" },

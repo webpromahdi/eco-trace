@@ -57,7 +57,7 @@ export const Header = () => {
         isScrolled ? "bg-background shadow-sm" : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 lg:px-6">
+      <nav className="container mx-auto">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">

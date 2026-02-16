@@ -29,7 +29,7 @@ const stats = [
 
 export const ImpactCTA = () => {
   return (
-    <section className="py-20 lg:py-32 bg-primary text-primary-foreground relative overflow-hidden">
+    <section className="py-16 md:py-24 xl:py-32 bg-primary text-primary-foreground relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -40,8 +40,8 @@ export const ImpactCTA = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-6 relative">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container mx-auto relative">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -49,20 +49,15 @@ export const ImpactCTA = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-serif text-3xl lg:text-4xl font-semibold mb-6">
+            <h2 className="font-serif heading-section font-semibold mb-6">
               Track your environmental journey
             </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed mb-8">
+            <p className="text-primary-foreground/80 text-body-lg leading-relaxed mb-8">
               Join thousands of conscious consumers who are making a real
               difference. Our Impact Tracker helps you visualize your progress
               and discover new ways to reduce your footprint.
             </p>
-            <Button
-              asChild
-              size="lg"
-              variant="secondary"
-              className="group"
-            >
+            <Button asChild size="lg" variant="secondary" className="group">
               <Link to="/impact">
                 View Your Impact
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -87,7 +82,9 @@ export const ImpactCTA = () => {
                 transition={{ delay: 0.3 + index * 0.1 }}
                 className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-6 flex items-center gap-4"
               >
-                <div className={`w-12 h-12 rounded-lg ${stat.bg} flex items-center justify-center`}>
+                <div
+                  className={`w-12 h-12 rounded-lg ${stat.bg} flex items-center justify-center`}
+                >
                   <stat.icon className={`h-6 w-6 ${stat.color}`} />
                 </div>
                 <div>

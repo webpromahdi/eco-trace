@@ -10,7 +10,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [ecoScoreRange, setEcoScoreRange] = useState<[number, number]>([0, 100]);
+  const [ecoScoreRange, setEcoScoreRange] = useState<[number, number]>([
+    0, 100,
+  ]);
   const [carbonRange, setCarbonRange] = useState<[number, number]>([0, 10]);
   const [sortBy, setSortBy] = useState("eco-desc");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -25,12 +27,14 @@ const Products = () => {
 
     // Eco score filter
     result = result.filter(
-      (p) => p.ecoScore >= ecoScoreRange[0] && p.ecoScore <= ecoScoreRange[1]
+      (p) => p.ecoScore >= ecoScoreRange[0] && p.ecoScore <= ecoScoreRange[1],
     );
 
     // Carbon filter
     result = result.filter(
-      (p) => p.carbonFootprint >= carbonRange[0] && p.carbonFootprint <= carbonRange[1]
+      (p) =>
+        p.carbonFootprint >= carbonRange[0] &&
+        p.carbonFootprint <= carbonRange[1],
     );
 
     // Sort
@@ -63,14 +67,14 @@ const Products = () => {
 
   return (
     <PageLayout>
-      <section className="py-12 lg:py-20">
-        <div className="container mx-auto px-4 lg:px-6">
+      <section className="py-16 md:py-24 xl:py-32">
+        <div className="container mx-auto">
           {/* Header */}
-          <div className="mb-10">
+          <div className="mb-8 md:mb-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-3"
+              className="font-serif heading-section font-semibold text-foreground mb-3"
             >
               Explore Products
             </motion.h1>
@@ -78,20 +82,20 @@ const Products = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-lg max-w-2xl"
+              className="text-muted-foreground text-body-lg max-w-2xl"
             >
               Discover sustainable alternatives with transparent eco-scores and
               environmental impact data.
             </motion.p>
           </div>
 
-          <div className="flex gap-8">
+          <div className="flex gap-6 lg:gap-8">
             {/* Desktop Filters */}
             <motion.aside
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="hidden lg:block w-72 shrink-0"
+              className="hidden lg:block w-full max-w-[280px] shrink-0"
             >
               <div className="sticky top-24 bg-card rounded-xl border border-border p-6">
                 <ProductFilters
@@ -119,7 +123,7 @@ const Products = () => {
                       Filters & Sort
                     </Button>
                   </SheetTrigger>
-                  <SheetContent side="left" className="w-80">
+                  <SheetContent side="left" className="w-[min(100%,320px)]">
                     <div className="py-4">
                       <ProductFilters
                         selectedCategory={selectedCategory}
@@ -151,7 +155,10 @@ const Products = () => {
               </div>
 
               {/* Products Grid */}
-              <motion.div layout className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              <motion.div
+                layout
+                className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-4 sm:gap-6"
+              >
                 <AnimatePresence mode="popLayout">
                   {filteredProducts.map((product, index) => (
                     <ProductCard

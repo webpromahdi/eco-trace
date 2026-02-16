@@ -36,23 +36,23 @@ const floatingVariants: Variants = {
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden hero-gradient">
+    <section className="relative min-h-[70svh] flex items-center overflow-hidden hero-gradient">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-20 right-[10%] w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+          className="absolute top-20 right-[10%] w-[min(16rem,40vw)] h-[min(16rem,40vw)] bg-primary/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-20 left-[5%] w-96 h-96 bg-accent/5 rounded-full blur-3xl"
+          className="absolute bottom-20 left-[5%] w-[min(24rem,50vw)] h-[min(24rem,50vw)] bg-accent/5 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-6 py-20 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container mx-auto py-16 md:py-24 xl:py-32">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             variants={containerVariants}
@@ -69,7 +69,7 @@ export const HeroSection = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-6"
+              className="font-serif heading-hero font-semibold text-foreground mb-6"
             >
               Discover your
               <span className="block eco-gradient-text">
@@ -109,7 +109,7 @@ export const HeroSection = () => {
             {/* Stats */}
             <motion.div
               variants={itemVariants}
-              className="mt-12 pt-8 border-t border-border grid grid-cols-3 gap-6"
+              className="mt-12 pt-8 border-t border-border grid grid-cols-3 gap-4 sm:gap-6"
             >
               {[
                 { value: "50K+", label: "Products" },
@@ -117,7 +117,7 @@ export const HeroSection = () => {
                 { value: "98%", label: "Accuracy" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="font-serif text-2xl lg:text-3xl font-semibold text-foreground">
+                  <p className="font-serif heading-subsection font-semibold text-foreground">
                     {stat.value}
                   </p>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>

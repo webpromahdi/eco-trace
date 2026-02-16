@@ -45,19 +45,19 @@ const itemVariants = {
 
 export const HowItWorks = () => {
   return (
-    <section className="py-20 lg:py-32 bg-card">
-      <div className="container mx-auto px-4 lg:px-6">
+    <section className="py-16 md:py-24 xl:py-32 bg-card">
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
         >
-          <h2 className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-4">
+          <h2 className="font-serif heading-section font-semibold text-foreground mb-4">
             How EcoTrace Works
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-body-lg">
             Three simple steps to understanding and reducing your environmental
             footprint.
           </p>
@@ -68,7 +68,7 @@ export const HowItWorks = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8 lg:gap-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {steps.map((step, index) => (
             <motion.div

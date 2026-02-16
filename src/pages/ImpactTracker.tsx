@@ -72,14 +72,14 @@ const ImpactTracker = () => {
 
   return (
     <PageLayout>
-      <section className="py-12 lg:py-20">
-        <div className="container mx-auto px-4 lg:px-6">
+      <section className="py-16 md:py-24 xl:py-32">
+        <div className="container mx-auto">
           {/* Header */}
-          <div className="mb-10">
+          <div className="mb-8 md:mb-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-3"
+              className="font-serif heading-section font-semibold text-foreground mb-3"
             >
               Your Impact Dashboard
             </motion.h1>
@@ -87,10 +87,10 @@ const ImpactTracker = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-lg max-w-2xl"
+              className="text-muted-foreground text-body-lg max-w-2xl"
             >
-              Track your environmental journey and see the positive impact of your
-              sustainable choices.
+              Track your environmental journey and see the positive impact of
+              your sustainable choices.
             </motion.p>
           </div>
 
@@ -99,7 +99,7 @@ const ImpactTracker = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 md:mb-10"
           >
             {statCards.map((stat, index) => (
               <motion.div
@@ -107,14 +107,16 @@ const ImpactTracker = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className="bg-card rounded-xl border border-border p-6"
+                className="bg-card rounded-xl border border-border p-4 sm:p-6"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <div className={`w-10 h-10 rounded-lg ${stat.bg} flex items-center justify-center`}>
+                  <div
+                    className={`w-10 h-10 rounded-lg ${stat.bg} flex items-center justify-center`}
+                  >
                     <stat.icon className={`h-5 w-5 ${stat.color}`} />
                   </div>
                 </div>
-                <p className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
+                <p className="heading-subsection font-bold text-foreground mb-1">
                   {stat.value}
                 </p>
                 <p className="text-sm text-muted-foreground">{stat.title}</p>
@@ -123,23 +125,33 @@ const ImpactTracker = () => {
           </motion.div>
 
           {/* Charts Section */}
-          <div className="grid lg:grid-cols-2 gap-6 mb-10">
+          <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 mb-8 md:mb-10">
             {/* Carbon Saved Over Time */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-card rounded-xl border border-border p-4 sm:p-6"
             >
-              <h3 className="font-serif text-xl font-medium mb-6">
+              <h3 className="font-serif heading-subsection font-medium mb-4 sm:mb-6">
                 Carbon Saved Over Time
               </h3>
-              <div className="h-48 sm:h-56 md:h-64">
+              <div className="aspect-[16/9] md:aspect-[2/1]">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={monthlyImpactData}>
-                    <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                    <XAxis dataKey="month" className="text-muted-foreground" />
-                    <YAxis className="text-muted-foreground" />
+                    <CartesianGrid
+                      strokeDasharray="3 3"
+                      className="stroke-muted"
+                    />
+                    <XAxis
+                      dataKey="month"
+                      className="text-muted-foreground"
+                      tick={{ fontSize: 12 }}
+                    />
+                    <YAxis
+                      className="text-muted-foreground"
+                      tick={{ fontSize: 12 }}
+                    />
                     <Tooltip
                       contentStyle={{
                         backgroundColor: "hsl(var(--card))",
@@ -164,17 +176,28 @@ const ImpactTracker = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-card rounded-xl border border-border p-4 sm:p-6"
             >
-              <h3 className="font-serif text-xl font-medium mb-6">
+              <h3 className="font-serif heading-subsection font-medium mb-4 sm:mb-6">
                 Average Eco Score Trend
               </h3>
-              <div className="h-48 sm:h-56 md:h-64">
+              <div className="aspect-[16/9] md:aspect-[2/1]">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={monthlyImpactData}>
-                    <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                    <XAxis dataKey="month" className="text-muted-foreground" />
-                    <YAxis domain={[0, 100]} className="text-muted-foreground" />
+                    <CartesianGrid
+                      strokeDasharray="3 3"
+                      className="stroke-muted"
+                    />
+                    <XAxis
+                      dataKey="month"
+                      className="text-muted-foreground"
+                      tick={{ fontSize: 12 }}
+                    />
+                    <YAxis
+                      domain={[0, 100]}
+                      className="text-muted-foreground"
+                      tick={{ fontSize: 12 }}
+                    />
                     <Tooltip
                       contentStyle={{
                         backgroundColor: "hsl(var(--card))",
@@ -198,16 +221,16 @@ const ImpactTracker = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mb-10"
+            className="mb-8 md:mb-10"
           >
-            <h2 className="font-serif text-2xl font-medium mb-6">
+            <h2 className="font-serif heading-subsection font-medium mb-4 sm:mb-6">
               What If You Switched?
             </h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               {scenarioData.map((scenario) => (
                 <div
                   key={scenario.id}
-                  className="bg-card rounded-xl border border-border p-6 hover:border-primary/20 transition-colors"
+                  className="bg-card rounded-xl border border-border p-4 sm:p-6 hover:border-primary/20 transition-colors"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-medium px-2 py-1 bg-primary/10 text-primary rounded-full">
@@ -226,7 +249,9 @@ const ImpactTracker = () => {
                   <div className="flex items-center gap-4 text-sm">
                     <div>
                       <p className="text-muted-foreground">Current</p>
-                      <p className="font-semibold">{scenario.currentImpact} kg CO₂</p>
+                      <p className="font-semibold">
+                        {scenario.currentImpact} kg CO₂
+                      </p>
                     </div>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
                     <div>
@@ -247,8 +272,8 @@ const ImpactTracker = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="font-serif text-2xl font-medium">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
+              <h2 className="font-serif heading-subsection font-medium">
                 Your Tracked Products
               </h2>
               <Button asChild variant="outline" size="sm">
@@ -260,7 +285,7 @@ const ImpactTracker = () => {
             </div>
 
             {trackedProductDetails.length > 0 ? (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-4">
                 {trackedProductDetails.map((item) => (
                   <Link
                     key={item!.productId}
@@ -269,7 +294,9 @@ const ImpactTracker = () => {
                   >
                     <EcoScore score={item!.product.ecoScore} size="sm" />
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium truncate">{item!.product.name}</p>
+                      <p className="font-medium truncate">
+                        {item!.product.name}
+                      </p>
                       <p className="text-sm text-muted-foreground">
                         {item!.product.carbonFootprint} kg CO₂
                       </p>

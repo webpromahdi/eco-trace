@@ -31,12 +31,13 @@ const Compare = () => {
   };
 
   const availableProducts = products.filter(
-    (p) => !selectedProducts.find((sp) => sp.id === p.id)
+    (p) => !selectedProducts.find((sp) => sp.id === p.id),
   );
 
-  const bestProduct = selectedProducts.reduce((best, current) =>
-    current.ecoScore > best.ecoScore ? current : best
-  , selectedProducts[0]);
+  const bestProduct = selectedProducts.reduce(
+    (best, current) => (current.ecoScore > best.ecoScore ? current : best),
+    selectedProducts[0],
+  );
 
   const metrics = [
     { key: "ecoScore", label: "Eco Score", unit: "/100" },
@@ -54,14 +55,14 @@ const Compare = () => {
 
   return (
     <PageLayout>
-      <section className="py-12 lg:py-20">
-        <div className="container mx-auto px-4 lg:px-6">
+      <section className="py-16 md:py-24 xl:py-32">
+        <div className="container mx-auto">
           {/* Header */}
-          <div className="mb-10">
+          <div className="mb-8 md:mb-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-3"
+              className="font-serif heading-section font-semibold text-foreground mb-3"
             >
               Compare Products
             </motion.h1>
@@ -69,7 +70,7 @@ const Compare = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-lg max-w-2xl"
+              className="text-muted-foreground text-body-lg max-w-2xl"
             >
               Compare sustainability metrics side-by-side to make the most
               eco-conscious choice.
@@ -82,11 +83,11 @@ const Compare = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-8"
+              className="mb-6 md:mb-8"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Select onValueChange={addProduct}>
-                  <SelectTrigger className="w-64">
+                  <SelectTrigger className="w-full sm:w-64">
                     <SelectValue placeholder="Add a product to compare" />
                   </SelectTrigger>
                   <SelectContent>
@@ -113,7 +114,7 @@ const Compare = () => {
             >
               <div>
                 {/* Product Cards Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4">
                   <AnimatePresence mode="popLayout">
                     {selectedProducts.map((product) => (
                       <motion.div
@@ -159,7 +160,11 @@ const Compare = () => {
                           <h3 className="font-serif text-lg font-medium mb-4">
                             {product.name}
                           </h3>
-                          <EcoScore score={product.ecoScore} size="md" showLabel />
+                          <EcoScore
+                            score={product.ecoScore}
+                            size="md"
+                            showLabel
+                          />
                         </div>
                       </motion.div>
                     ))}
@@ -169,8 +174,8 @@ const Compare = () => {
                 {/* Metrics Comparison */}
                 <div className="mt-8 space-y-6">
                   {/* Key Metrics */}
-                  <div className="bg-card rounded-xl border border-border p-6">
-                    <h3 className="font-serif text-lg font-medium mb-4">
+                  <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+                    <h3 className="font-serif heading-subsection font-medium mb-4">
                       Key Metrics
                     </h3>
                     <div className="space-y-4">
@@ -179,15 +184,29 @@ const Compare = () => {
                           <p className="text-sm text-muted-foreground mb-2">
                             {metric.label}
                           </p>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                             {selectedProducts.map((product) => {
-                              const value = product[metric.key as keyof Product];
+                              const value =
+                                product[metric.key as keyof Product];
                               const isBest =
                                 metric.key === "carbonFootprint"
-                                  ? value === Math.min(...selectedProducts.map((p) => p.carbonFootprint))
+                                  ? value ===
+                                    Math.min(
+                                      ...selectedProducts.map(
+                                        (p) => p.carbonFootprint,
+                                      ),
+                                    )
                                   : metric.key === "price"
-                                  ? value === Math.min(...selectedProducts.map((p) => p.price))
-                                  : value === Math.max(...selectedProducts.map((p) => p.ecoScore));
+                                    ? value ===
+                                      Math.min(
+                                        ...selectedProducts.map((p) => p.price),
+                                      )
+                                    : value ===
+                                      Math.max(
+                                        ...selectedProducts.map(
+                                          (p) => p.ecoScore,
+                                        ),
+                                      );
 
                               return (
                                 <div
@@ -196,8 +215,12 @@ const Compare = () => {
                                     isBest ? "bg-primary/10" : "bg-muted"
                                   }`}
                                 >
-                                  <span className={`text-lg font-semibold ${isBest ? "text-primary" : ""}`}>
-                                    {metric.prefix}{String(value)}{metric.unit}
+                                  <span
+                                    className={`text-lg font-semibold ${isBest ? "text-primary" : ""}`}
+                                  >
+                                    {metric.prefix}
+                                    {String(value)}
+                                    {metric.unit}
                                   </span>
                                 </div>
                               );
@@ -209,8 +232,8 @@ const Compare = () => {
                   </div>
 
                   {/* Sustainability Breakdown */}
-                  <div className="bg-card rounded-xl border border-border p-6">
-                    <h3 className="font-serif text-lg font-medium mb-4">
+                  <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+                    <h3 className="font-serif heading-subsection font-medium mb-4">
                       Sustainability Breakdown
                     </h3>
                     <div className="space-y-4">
@@ -219,13 +242,19 @@ const Compare = () => {
                           <p className="text-sm text-muted-foreground mb-2">
                             {metric.label}
                           </p>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                             {selectedProducts.map((product) => {
-                              const value = product.sustainability[metric.key as keyof typeof product.sustainability];
+                              const value =
+                                product.sustainability[
+                                  metric.key as keyof typeof product.sustainability
+                                ];
                               const maxValue = Math.max(
                                 ...selectedProducts.map(
-                                  (p) => p.sustainability[metric.key as keyof typeof p.sustainability]
-                                )
+                                  (p) =>
+                                    p.sustainability[
+                                      metric.key as keyof typeof p.sustainability
+                                    ],
+                                ),
                               );
                               const isBest = value === maxValue;
 
@@ -234,14 +263,18 @@ const Compare = () => {
                                   <div className="h-2 bg-muted rounded-full overflow-hidden">
                                     <motion.div
                                       className={`h-full rounded-full ${
-                                        isBest ? "bg-primary" : "bg-muted-foreground/30"
+                                        isBest
+                                          ? "bg-primary"
+                                          : "bg-muted-foreground/30"
                                       }`}
                                       initial={{ width: 0 }}
                                       animate={{ width: `${value}%` }}
                                       transition={{ duration: 0.5 }}
                                     />
                                   </div>
-                                  <p className={`text-center text-sm mt-1 ${isBest ? "text-primary font-medium" : ""}`}>
+                                  <p
+                                    className={`text-center text-sm mt-1 ${isBest ? "text-primary font-medium" : ""}`}
+                                  >
                                     {value}%
                                   </p>
                                 </div>
@@ -254,11 +287,11 @@ const Compare = () => {
                   </div>
 
                   {/* Certifications */}
-                  <div className="bg-card rounded-xl border border-border p-6">
-                    <h3 className="font-serif text-lg font-medium mb-4">
+                  <div className="bg-card rounded-xl border border-border p-4 sm:p-6">
+                    <h3 className="font-serif heading-subsection font-medium mb-4">
                       Certifications
                     </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                       {selectedProducts.map((product) => (
                         <div key={product.id} className="flex flex-wrap gap-2">
                           {product.certifications.map((cert) => (
@@ -286,10 +319,10 @@ const Compare = () => {
               <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
                 <Plus className="h-8 w-8 text-muted-foreground" />
               </div>
-              <h3 className="font-serif text-xl font-medium text-foreground mb-2">
+              <h3 className="font-serif heading-subsection font-medium text-foreground mb-2">
                 Select products to compare
               </h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground text-body-lg mb-4">
                 Add at least 2 products to start comparing their sustainability
                 metrics.
               </p>
