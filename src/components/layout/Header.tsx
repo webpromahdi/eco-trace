@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Leaf, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/hooks/use-theme";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -15,8 +16,8 @@ const navLinks = [
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { resolvedTheme, toggleTheme } = useTheme();
   const location = useLocation();
 
   useEffect(() => {
@@ -26,14 +27,6 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -102,12 +95,12 @@ export const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setIsDark(!isDark)}
+              onClick={toggleTheme}
               className="rounded-full"
               aria-label="Toggle dark mode"
             >
               <AnimatePresence mode="wait">
-                {isDark ? (
+                {resolvedTheme === "dark" ? (
                   <motion.div
                     key="sun"
                     initial={{ opacity: 0, rotate: -90 }}
